@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import 'ASSET/css/normalize.less';
 import 'ASSET/css/main.styl';
 
 const App = ({
@@ -18,7 +19,7 @@ const App = ({
           <Link to="/ask">Ask</Link>
           <Link to="/job">Jobs</Link>
           <a className="github" href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank">
-            Built with React
+            Built with React.js
           </a>
         </nav>
       </header>

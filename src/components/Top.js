@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemList from './common/Item';
+import ItemList from './common/ItemList';
 
 const Top = () => {
     return (

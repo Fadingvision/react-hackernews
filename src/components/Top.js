@@ -1,8 +1,11 @@
 import React from 'react';
+import ItemList from './common/Item';
 
 const Top = () => {
     return (
-        <div>123</div>
+        <div>
+            <ItemList></ItemList>
+        </div>
     );
 }
 

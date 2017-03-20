@@ -1,15 +1,16 @@
 import React, {PropTypes} from 'react';
 import { Link } from 'react-router';
 
+import {host} from 'UTIL/filter/';
+
 const Item = (props) => {
     let {story} = props;
-    console.log(story)
     return (
         <li className="news-item">
             <span className="score">{story.score}</span>
             <span className="title">
                 <a href={story.url} target="_blank">{story.title}</a>
-                <span className="host">{story.url}</span>
+                {story.url && <span className="host">({host(story.url)})</span>}
             </span>
             <br/>
             <span className="meta">

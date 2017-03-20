@@ -6,7 +6,6 @@ import { Router } from 'react-router'
 import store, { history } from 'STORE'
 import routes from 'ROUTE'
 
-
 const MOUNT_NODE = document.getElementById('app')
 // <Provider /> 是由 React Redux 提供的高阶组件，用来让你将 Redux 绑定到 React （详见 搭配 React）。
 // 我们将用 <Provider /> 包裹 <Router />，以便于路由处理器可以访问 store

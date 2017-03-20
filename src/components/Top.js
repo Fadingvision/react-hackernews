@@ -3,9 +3,7 @@ import ItemList from './common/ItemList';
 
 const Top = () => {
     return (
-        <div>
-            <ItemList></ItemList>
-        </div>
+        <ItemList></ItemList>
     );
 }
 

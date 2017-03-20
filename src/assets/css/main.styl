@@ -1,11 +1,33 @@
+.hidden
+  display none
+
 body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size 15px
   background-color lighten(#eceef1, 30%)
-  margin 0
+  max-width 1500px
+  margin 0 auto
   padding-top 55px
   color #34495e
   overflow-y scroll
+
+.container
+  max-width 800px
+  background-color #fff
+  margin 0 auto
+  position relative
+
+
+.comment-container
+  padding 1.8em 2em 1em
+
+.fade-enter
+  opacity: 0;
+  z-index: 1;
+
+.fade-enter.fade-enter-active
+  opacity: 1;
+  transition: opacity 250ms ease-in;
 
 a
   color #34495e
@@ -157,3 +179,77 @@ a
       text-decoration underline
       &:hover
         color #ff6600
+
+
+.item-view-header
+  background-color #fff
+  padding 1.8em 2em 1em
+  box-shadow 0 1px 2px rgba(0,0,0,.1)
+  h1
+    display inline
+    font-size 1.5em
+    margin 0
+    margin-right .5em
+  .host, .meta, .meta a
+    color #999
+  .meta a
+    text-decoration underline
+
+.item-view-comments
+  background-color #fff
+  margin-top 10px
+  padding 0 2em .5em
+
+.item-view-comments-header
+  margin 0
+  font-size 1.1em
+  padding 1em 0
+  position relative
+  .spinner
+    position absolute
+    top 0
+    right 0
+    bottom auto
+
+.comment-children
+  list-style-type none
+  padding 0
+  margin 0
+
+@media (max-width 600px)
+  .item-view-header
+    h1
+      font-size 1.25em
+
+.comment-children
+  .comment-children
+    margin-left 1.5em
+
+.comment
+  border-top 1px solid #eee
+  position relative
+  .by, .text, .toggle
+    font-size .9em
+    margin 1em 0
+  .by
+    color #999
+    a
+      color #999
+      text-decoration underline
+  .text
+    overflow-wrap break-word
+    a:hover
+      color #ff6600
+    pre
+      white-space pre-wrap
+  .toggle
+    background-color #fffbf2
+    padding .3em .5em
+    border-radius 4px
+    a
+      color #999
+      cursor pointer
+    &.open
+      padding 0
+      background-color transparent
+      margin-bottom -0.5em

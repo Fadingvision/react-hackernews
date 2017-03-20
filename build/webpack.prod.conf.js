@@ -22,11 +22,11 @@ config.module.loaders.push({
   test: /\.css$/,
   loader: ExtractTextPlugin.extract('style', 'css')
 }, {
-  test: /\.stylus$/,
+  test: /\.styl$/,
   loader: ExtractTextPlugin.extract('style', 'css!stylus')
 }, {
-  test: /\.scss$/,
-  loader: ExtractTextPlugin.extract('style', 'css!sass')
+  test: /\.less$/,
+  loader: ExtractTextPlugin.extract('style', 'css!less')
 });
 
 config.plugins.push(

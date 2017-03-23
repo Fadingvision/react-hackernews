@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Spinner from './Spinner.jsx';
 import Item from './Item.jsx';
 
-import makeCancelable from 'UTIL/cancelableFetch'
+import makeCancelable from 'UTIL/cancelablePromise'
 
 export default class ItemList extends React.Component {
 

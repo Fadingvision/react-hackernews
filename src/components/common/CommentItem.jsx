@@ -33,7 +33,7 @@ class CommentItem extends React.Component {
     render() {
         let {open, comment} = this.state;
         return (
-            <li className="comment">
+            comment && <li className="comment">
                 <div className="by">
                     <Link to={`/user/${comment.by}`}>{comment.by}</Link>
                     {timeAgo(comment.time)} ago

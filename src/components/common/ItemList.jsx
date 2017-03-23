@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import Spinner from './Spinner.jsx';
 import Item from './Item.jsx';
 
@@ -11,11 +10,13 @@ export default class ItemList extends React.Component {
         super(props);
         this.state = {
             stories: [],
+            isShow: true,
         };
         this.cancelablePromises = [];
     }
 
     componentDidMount() {
+        // this.setState({isShow: true});
         fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
         .then(res => res.json())
         .then(ids => {
@@ -25,8 +26,7 @@ export default class ItemList extends React.Component {
                 let cancelablePromise = makeCancelable(fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`));
                 this.cancelablePromises.push(cancelablePromise);
 
-                cancelablePromise
-                .promise
+                cancelablePromise.promise
                 .then(res => res.json())
                 .then(story => {
                     story.rank = index + 1;
@@ -35,8 +35,11 @@ export default class ItemList extends React.Component {
                     });
                 })
                 .catch(err => console.log(err))
-            })
+            });
+
+            Promise.all(this.cancelablePromises.map(item => item.promise)).then(() => this.setState({isShow: false}))
         });
+
     }
 
     componentWillUnmount() {
@@ -44,10 +47,11 @@ export default class ItemList extends React.Component {
     }
 
     render() {
-        let {stories} = this.state
+        let {stories, isShow} = this.state
+        console.log(isShow)
         return (
           <div className="news-list">
-            <Spinner show={true}></Spinner>
+            <Spinner show={isShow}></Spinner>
             {stories.map(story => (
                 <Item story={story} key={story.id}></Item>
             ))}
